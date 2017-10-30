@@ -662,6 +662,7 @@ h2.title {
   background: rgba(200, 200, 200, 0.2);
 }
 
+
 .main-panel {
   position: relative;
   z-index: 2;
@@ -681,8 +682,8 @@ h2.title {
   transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
 }
 .main-panel .main-content {
-  margin-top: 70px;
-  padding: 30px 15px;
+  margin-top: 0px;
+  padding: 0px 5px;
   min-height: calc(100% - 123px);
 }
 .main-panel div .footer {
@@ -2328,8 +2329,8 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   border: 0;
   border-radius: 0;
   position: relative;
-  padding: 20px 15px;
-  line-height: 20px;
+  padding: 0px 5px;
+  line-height: 0px;
 }
 .alert b {
   font-weight: 500;
@@ -2355,7 +2356,20 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   color: #fff;
 }
 .alert.alert-primary {
-  background-color: #af2cc5;
+  background-color: #ff7e7e;
+  color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
+}
+
+.alert.alert-red {
+  background-color: #d9534f;
+  color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
+}
+.alert.alert-yellow {
+  background-color: #f0ad4e;
   color: #ffffff;
   border-radius: 3px;
   box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
@@ -2391,7 +2405,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   color: #ffffff;
 }
 .alert.alert-danger {
-  background-color: #f55a4e;
+  background-color: #d9534f;
   color: #ffffff;
   border-radius: 3px;
   box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
@@ -2416,14 +2430,14 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 }
 .alert i[data-notify="icon"] {
   font-size: 30px;
-  display: block;
+  display: inline-block;
   left: 15px;
   position: absolute;
   top: 50%;
   margin-top: -15px;
 }
 .alert span {
-  display: block;
+  display: inline-block;
   max-width: 89%;
 }
 .alert .alert-icon {
@@ -3536,6 +3550,16 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .tooltip.bottom .tooltip-arrow {
   border-bottom-color: #FFFFFF;
 }
+.sanheader {
+  color: white;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-weight: 500;
+  font-size: 25px;
+}
+body {
+  background-image: url("/assets/img/sandiago.jpg");
+}
 
 .tooltip-inner {
   padding: 10px 15px;
@@ -3764,7 +3788,7 @@ footer .btn {
   color: #999999;
 }
 .card img {
-  width: 100%;
+  width: 10%;
   height: auto;
 }
 .card .category .material-icons {

@@ -1,41 +1,65 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="card">
-            <div class="card-header" data-background-color="red">
-                <h4 class="title">Notifications</h4>
-                <p class="category">Handcrafted by our friend <a target="_blank" href="https://github.com/mouse0270">Robert McIntosh</a>. Please checkout the <a href="http://bootstrap-notify.remabledesigns.com/" target="_blank">full documentation.</a></p>
-            </div>
+           <!-- <div class="card-header" data-background-color="black">
+                <h4 class="title">San diego Smart Parking Prediction</h4>
+                <p class="category">Parking live availability and live prediction </p>
+            </div> -->
             <div class="card-content">
                 <div class="row">
                     <div class="col-md-6">
-                        <h5>Notifications Style</h5>
-                        <div class="alert alert-info">
-                            <span>This is a plain notification</span>
+                        <div  *ngFor="let m of mapData; let i = index">
+                            <div [ngClass]="m.predication > 70 ? 'alert alert-success alert-with-icon' : 'alert alert-yellow alert-with-icon' ">
+                                <button type="button" aria-hidden="true" class="close">×</button>
+                                <span data-notify="message">{{m.sname}}</span>
+                                <span data-notify="message">  {{m.miles}} miles</span>
+                                <span data-notify="message">Available  parking {{m.parking}}</span>
+                                <i data-notify="icon" class="fa fa-car" aria-hidden="true"></i>
+                            </div>
+                            <div class="progress">
+                                <div [ngClass]="m.predication > 70 ? 'progress-bar progress-bar-success' : 'progress-bar progress-bar-warning' " class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80"
+                                aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': m.predication +'%' }">
+                                {{m.predication}}% Chance
+                                </div>
+                            </div>
                         </div>
-                        <div class="alert alert-info">
+                         <!-- <div class="alert alert-yellow alert-with-icon" data-notify="container">
+                                <button type="button" aria-hidden="true" class="close">×</button>
+                                <span data-notify="message">8th Avenue</span>
+                                <span data-notify="message">2 miles</span>
+                                <span data-notify="message">Available parking  6</span>
+                                <i data-notify="icon" class="fa fa-car" aria-hidden="true"></i>
+                            </div>
+                       <div class="progress">
+                                <div class="progress-bar progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40"
+                                aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                                  60% Chance
+                                </div>
+                              </div>
+                        <div class="alert alert-red alert-with-icon" data-notify="container">
                             <button type="button" aria-hidden="true" class="close">×</button>
-                            <span>This is a notification with close button.</span>
+                            <span data-notify="message">5th Avenue</span>
+                            <span data-notify="message">1.5 miles</span>
+                            <span data-notify="message">Available parking  10</span>
+                            <i data-notify="icon" class="fa fa-car" aria-hidden="true"></i>
                         </div>
-                        <div class="alert alert-info alert-with-icon" data-notify="container">
-                            <button type="button" aria-hidden="true" class="close">×</button>
-                            <i data-notify="icon" class="material-icons">add_alert</i>
-                            <span data-notify="message">This is a notification with close button and icon.</span>
-                        </div>
-                        <div class="alert alert-info alert-with-icon" data-notify="container">
-                            <button type="button" aria-hidden="true" class="close">×</button>
-                            <i data-notify="icon" class="material-icons">add_alert</i>
-                            <span data-notify="message">This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style.</span>
-                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60"
+                            aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                              40% Chance
+                            </div>
+                          </div>-->
+                       
                     </div>
-                    <div class="col-md-6">
-                        <h5>Notification states</h5>
+                   <!-- <div class="col-md-6">
                         <div class="alert alert-info">
                             <button type="button" aria-hidden="true" class="close">×</button>
-                            <span><b> Info - </b> This is a regular notification made with ".alert-info"</span>
+                            <span>1st Ave   Parking 10</span>
+                            <span><img  src="/assets/img/navi_icon.png" /></span>
                         </div>
                         <div class="alert alert-success">
                             <button type="button" aria-hidden="true" class="close">×</button>
-                            <span><b> Success - </b> This is a regular notification made with ".alert-success"</span>
+                            <span><b> W Fir St - Parking : 8</b> </span>
                         </div>
                         <div class="alert alert-warning">
                             <button type="button" aria-hidden="true" class="close">×</button>
@@ -49,13 +73,19 @@
                             <button type="button" aria-hidden="true" class="close">×</button>
                             <span><b> Primary - </b> This is a regular notification made with ".alert-primary"</span>
                         </div>
-                    </div>
+                    </div>-->
+                </div>
+                <div class="row">
+                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                        <agm-marker *ngFor="let m of markers; let i = index"
+                        [latitude]="m.lat"
+                        [longitude]="m.lng"
+                        [markerClickable]="true"
+                        [label]="m.label"></agm-marker>
+                      </agm-map>
                 </div>
 
-                <br>
-                <br>
-
-                <div class="places-buttons">
+                <!--<div class="places-buttons">
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3 text-center">
                             <h5>Notifications Places
@@ -89,7 +119,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>

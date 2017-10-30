@@ -53,6 +53,7 @@
             margin-bottom: 0;
         }
     }
+   
 
     .card-header{
         @include shadow-big();
@@ -60,6 +61,7 @@
         border-radius: $border-radius-base;
         padding: $padding-base;
         background-color: $gray-color;
+        background-image: url("/assets/img/sandiago.jpg");
 
         .title{
             color: $white-color;
@@ -202,6 +204,10 @@
 
     [data-background-color="purple"]{
         background: linear-gradient(60deg, $purple-400, $purple-600);
+        @include shadow-big-color($brand-primary);
+    }
+    [data-background-color="black"]{
+        background: linear-gradient(60deg, $black, $black);
         @include shadow-big-color($brand-primary);
     }
 

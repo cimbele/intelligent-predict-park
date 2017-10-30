@@ -4,6 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import { CommonModule } from '@angular/common';
+
+import { AgmCoreModule } from '@agm/core';
+
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
@@ -36,7 +40,11 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
     FormsModule,
     HttpModule,
     ComponentsModule,
-RouterModule,
+    RouterModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBAXNkUE6vqaj-vW2GksNxspYs4mpz41Ds'
+    }),
+
     AppRoutingModule
   ],
   providers: [],
